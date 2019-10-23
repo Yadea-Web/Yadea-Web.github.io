@@ -5,8 +5,20 @@
     <entry>
       <title>My First Blog</title>
       <link href="/2019/10/23/My-First-Blog/"/>
-      <content type="html"><![CDATA[<p>这是我的第一篇博客。</p><p>今天鼓捣了一天的github.io和hexo，终于搭建好了，记录一下过程和踩的坑。</p>]]></content>
+      <content type="html"><![CDATA[<p>这是我的第一篇博客。</p><p>今天鼓捣了一天的github.io和hexo，终于搭建好了，记录一下过程和踩的坑。</p><a id="more"></a><p>明天写！！！</p><p>摘要：</p><ul><li>Git和hexo d的关系</li><li>添加标签、分类</li><li>hexo环境删掉了怎么办</li><li>搭建一个hexo环境</li><li>个人信息在哪里修改/themes的config文件</li><li></li></ul>]]></content>
       
+      <categories>
+          
+          <category> Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
       
     </entry>
     
