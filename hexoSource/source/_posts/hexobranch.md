@@ -15,6 +15,7 @@ tags: [hexo]
 3. 设置hexo为默认分支，如图。
 
 	![settingBranch](settingBranch.jpg)
+	
 4. 配置SSH Key
 
 #### 步骤
