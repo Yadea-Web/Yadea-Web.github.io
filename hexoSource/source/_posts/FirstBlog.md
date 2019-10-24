@@ -122,7 +122,7 @@ hexo可以配置git地址，生成HTML文件后上传部署更新。
 
 我们将仓库分为两个分支，`master`放静态文件，`hexo`放我们的源文件。
 
-具体操作参考[hexo搭建github分支问题](./hexobranch/index.html)
+具体操作参考[hexo搭建github分支问题](../../24/hexobranch/index.html)
 
 ##### 为什么不用git pull 全部推到git上？
 
