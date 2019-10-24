@@ -16,7 +16,7 @@
 <meta property="og:description" content="之前创建了一个hexo模板，但源文件没办法备份，更换电脑后之前的文件找不到，相当于之前辛辛苦苦写的文档都丢了。 看到网上说可以创建利用分支来解决这个问题，尝试了一把也踩了不少坑，现在把关键步骤记录下来以备后患。 准备工作 创建github仓库  新建一个hexo分支  设置hexo为默认分支，如图。    配置SSH Key   步骤 先创建一个空文件夹，命名为github.io（命名随意） 进入">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;24&#x2F;hexobranch&#x2F;settingBranch.jpg">
-<meta property="og:updated_time" content="2019-10-24T10:50:05.833Z">
+<meta property="og:updated_time" content="2019-10-24T11:06:24.061Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;24&#x2F;hexobranch&#x2F;settingBranch.jpg">
   
@@ -92,9 +92,9 @@
 <h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
 <li><p>创建github仓库</p>
 </li>
-<li><p>新建一个hexo分支</p>
+<li><p>新建一个<code>hexo</code>分支</p>
 </li>
-<li><p>设置hexo为默认分支，如图。</p>
+<li><p>设置<code>hexo</code>为默认分支，如图。</p>
 <p> <img src="settingBranch.jpg" alt="settingBranch"></p>
 </li>
 <li><p>配置SSH Key</p>
@@ -103,9 +103,9 @@
 <h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
 <li>先创建一个空文件夹，命名为<code>github.io</code>（命名随意）</li>
 <li>进入该文件夹下，执行<code>git clone （你的仓库地址）</code></li>
-<li>由于我们设置了默认分支，此时clone下来的是hexo分支的内容。本地分支默认显示为master，我们把本地分支切换到hexo分支去</li>
-<li>git checkout hexo  切换到hexo分支</li>
-<li>git branch -v  打印当前所有的分支，当前分支颜色为绿色</li>
+<li>由于我们设置了默认分支，此时clone下来的是<code>hexo</code>分支的内容。本地分支默认显示为<code>master</code>，我们把本地分支切换到<code>hexo</code>分支去</li>
+<li><code>git checkout hexo</code>  切换到hexo分支</li>
+<li><code>git branch -v</code>  打印当前所有的分支，当前分支颜色为绿色</li>
 </ol>
 <p>此时分支问题就弄好了，然后开始新建hexo模板。</p>
 <ol>
@@ -122,11 +122,11 @@
 </li>
 <li><p>执行<code>hexo d</code>提交生成的静态文件代码</p>
 </li>
-<li><p>打开你的github.io主页，地址为你的名字+github.io。比如我的仓库地址为<a href="https://github.com/Yadea-Web/Yadea-Web.github.io，那我的博客地址为https://Yadea-Web.github.io，把`Yadea-Web`那块儿替换成你自己的名字就可以了" target="_blank" rel="noopener">https://github.com/Yadea-Web/Yadea-Web.github.io，那我的博客地址为https://Yadea-Web.github.io，把`Yadea-Web`那块儿替换成你自己的名字就可以了</a></p>
+<li><p>打开你的github.io主页，地址为你的名字+github.io。比如我的仓库地址为<code>https://github.com/Yadea-Web/Yadea-Web.github.io</code>，那我的博客地址为<code>https://Yadea-Web.github.io</code>，把<code>Yadea-Web</code>那块儿替换成你自己的名字就可以了</p>
 </li>
 </ol>
 <p>到此我们的git就配置好了，文章也可以生成了。</p>
-<h4 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h4><p>配置好以上内容，之后我们新建文章修改文章，都要提交两次。一次是提交hexo为我们生成的静态文件到master分支，供用户访问。另一次是我们自己提交源文件到hexo分支，为自己备份。</p>
+<h4 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h4><p>配置好以上内容，之后我们新建文章修改文章，都要提交两次。一次是提交hexo为我们生成的静态文件到<code>master</code>分支，供用户访问。另一次是我们自己提交源文件到<code>hexo</code>分支，为自己备份。</p>
 <ul>
 <li><p>hexo提交命令</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
@@ -135,18 +135,21 @@
 git commit -m &quot;备份&quot;
 git push origin hexo</code></pre></li>
 </ul>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>master分支放着hexo为我们生成的静态文件，用户可以直接通过博客地址访问生成好的内容。<br>hexo分支放着我们的源文件和配置信息，更换电脑或者文章找不到时可以git clone hexo分支的内容重新配置，之前的文章也不会丢失。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<li><code>master</code>分支放着hexo为我们生成的静态文件，用户可以直接通过博客地址访问生成好的内容。</li>
+<li><code>hexo</code>分支放着我们的源文件和配置信息，更换电脑或者文章找不到时可以git clone hexo分支的内容重新配置，之前的文章也不会丢失。</li>
+</ul>
 <p>记得每次提交一定要提交两次啊！！！</p>
 <h4 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h4><ol>
-<li>执行git clone后执行hexo init，提示文件夹内有内容，只能在空文件夹里新建。把.git文件夹挪出去后再执行依旧不行，百度了很多说删掉就可以，但我这里就是不行。所以用了创建一个新的文件夹的方式来解决这个问题，hexo init 指在当前文件夹下新建hexo库，hexo init XXX 指新建一个XXX文件夹，在XXX文件夹下新建hexo库，这样就解决了</li>
-<li>git clone 下来的默认远程分支为hexo（我们设置的），本地的叫master（默认创建的第一个分支，但代码是hexo分支的），有点混乱，所以切到hexo分支就可以了，别的不需要care</li>
+<li>执行<code>git clone</code>后执行<code>hexo init</code>，提示文件夹内有内容，只能在空文件夹里新建。把.git文件夹挪出去后再执行依旧不行，百度了很多说删掉就可以，但我这里就是不行。所以用了创建一个新的文件夹的方式来解决这个问题，<code>hexo init</code> 指在当前文件夹下新建hexo库，<code>hexo init XXX</code> 指新建一个<code>XXX</code>文件夹，在<code>XXX</code>文件夹下新建hexo库，这样就解决了</li>
+<li><code>git clone</code> 下来的默认远程分支为<code>hexo</code>（我们设置的），本地的叫<code>master</code>（默认创建的第一个分支，但代码是<code>hexo</code>分支的），有点混乱，所以切到<code>hexo</code>分支就可以了，别的不需要care</li>
 </ol>
 <p>你成功了吗？</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/24/hexobranch/" data-id="ck24l787r0001f40b33xlgtff" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/24/hexobranch/" data-id="ck24lq2a30001jx0b944qa8w3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
@@ -158,9 +161,9 @@ git push origin hexo</code></pre></li>
 <nav id="article-nav">
   
   
-    <a href="/2019/10/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/10/23/FirstBlog/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">从0开始创建一个github博客</div>
     </a>
   
 </nav>
@@ -173,13 +176,20 @@ git push origin hexo</code></pre></li>
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li></ul>
+    </div>
+  </div>
+
 
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
     </div>
   </div>
 
@@ -189,7 +199,7 @@ git push origin hexo</code></pre></li>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
     </div>
   </div>
 
@@ -215,7 +225,7 @@ git push origin hexo</code></pre></li>
           </li>
         
           <li>
-            <a href="/2019/10/24/hello-world/">Hello World</a>
+            <a href="/2019/10/23/FirstBlog/">从0开始创建一个github博客</a>
           </li>
         
       </ul>
