@@ -89,4 +89,6 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repository: git@github.com:Yadea-Web/Yadea-Web.github.io.git
+  branch: master
