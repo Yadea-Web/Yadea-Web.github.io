@@ -58,13 +58,13 @@ tags: [Hexo]
 
 配置好以上内容，之后我们新建文章修改文章，都要提交两次。一次是提交hexo为我们生成的静态文件到`master`分支，供用户访问。另一次是我们自己提交源文件到`hexo`分支，为自己备份。
 
-* hexo提交命令
+* hexo提交命令(在`sourceHexo`文件夹下执行)
 
 	```
 	hexo g
 	hexo d
 	```
-* git提交命令
+* git提交命令(在`github.io`文件夹下执行)
 
 	```
 	git add .
