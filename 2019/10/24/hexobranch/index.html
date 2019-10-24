@@ -98,7 +98,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="words">1553
+				<span class="words">1590
 				</span>
 			
 		</div>
@@ -174,9 +174,9 @@
 <p>到此我们的git就配置好了，文章也可以生成了。</p>
 <h4 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h4><p>配置好以上内容，之后我们新建文章修改文章，都要提交两次。一次是提交hexo为我们生成的静态文件到<code>master</code>分支，供用户访问。另一次是我们自己提交源文件到<code>hexo</code>分支，为自己备份。</p>
 <ul>
-<li><p>hexo提交命令</p>
+<li><p>hexo提交命令(在<code>sourceHexo</code>文件夹下执行)</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-<li><p>git提交命令</p>
+<li><p>git提交命令(在<code>github.io</code>文件夹下执行)</p>
 <pre><code>git add .
 git commit -m &quot;备份&quot;
 git push origin hexo</code></pre></li>
