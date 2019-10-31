@@ -112,6 +112,64 @@
 	   
 	<div class="article-header">
 	    
+		<a class="title" href="/2019/10/31/cornershadow/">iOS设置圆角后阴影不显示</a>  
+	       
+		 
+
+		<div class="meta">
+			<time>10月 31, 2019</time>			
+		</div>
+	</div>
+
+
+	
+
+    
+	<div class="typo article-excerpt">	
+		
+			<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>设计图中View有阴影和圆角，里面填充了四个按钮。同时设置View的圆角和阴影，阴影并不显示。试了很多次，找了很多办法，记录一下过程。</p>
+<p>为了展示父视图的圆角，设置了masksToBounds=YES，将超出父视图的内容clip掉，这样圆角就OK了。不设置时，Subview会超出父视图，看起来像圆角没有设置成功。</p>
+<p>接着给父视图设置Shadow却没有成功。一开始以为是代码的问题，写了很多次，数值啊颜色啊大小啊都设置的很大，却还是不显示。百度了一下，提示阴影为超出父视图的部分，如果使用masksToBounds会把超出部分切掉，但去掉masksToBounds会导致圆角失效。</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>给View外面套一层ShadowView，把阴影加到ShadowView上，不设置masksToBounds，再设置真正需要圆角的View，设置masksToBounds即可。</p>
+		  	  
+	</div>
+
+
+
+	<div class="article-categories">
+	 
+      <i class="iconfont icon-category" style="margin-right:4px"></i>
+	  	            
+				<a class="link" href="/categories/iOS/">iOS</a>           
+		
+      
+	</div>
+	
+
+	<div class="article-tags">
+		
+			<i class="iconfont icon-tags" style="margin-right:4px"></i>
+			            
+				<a class="link" href="/tags/iOS/">iOS</a>           
+			
+		
+	</div>
+
+	<div class="article-bottom">
+		<a class="readmore" href="/2019/10/31/cornershadow/">阅读更多</a> 	
+	</div>	
+    
+</article>
+
+	
+	
+	
+	
+
+<article class="article">		
+	   
+	<div class="article-header">
+	    
 		<a class="title" href="/2019/10/24/hexobranch/">hexo搭建github分支问题</a>  
 	       
 		 

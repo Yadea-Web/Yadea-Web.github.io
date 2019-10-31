@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   
   
-  <title>  Hexo搭建github分支问题 |   Yadea&#39;s Blog </title>
+  <title>  iOS设置圆角后阴影不显示 |   Yadea&#39;s Blog </title>
 
  
   
@@ -88,17 +88,17 @@
 	
 <div class="header">
 		<p class="title">	
-			hexo搭建github分支问题
+			iOS设置圆角后阴影不显示
 		</p>
 		<div class="info">	
 			<time>
-				10月 24, 2019
+				10月 31, 2019
 			</time>
 
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="words">1590
+				<span class="words">1202
 				</span>
 			
 		</div>
@@ -131,66 +131,25 @@
 		
 
 			
-					<p>之前创建了一个hexo模板，但源文件没办法备份，更换电脑后之前的文件找不到，相当于之前辛辛苦苦写的文档都丢了。</p>
-<p>看到网上说可以创建利用分支来解决这个问题，尝试了一把也踩了不少坑，现在把关键步骤记录下来以备后患。</p>
+					<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>设计图中View有阴影和圆角，里面填充了四个按钮。同时设置View的圆角和阴影，阴影并不显示。试了很多次，找了很多办法，记录一下过程。</p>
+<p>为了展示父视图的圆角，设置了masksToBounds=YES，将超出父视图的内容clip掉，这样圆角就OK了。不设置时，Subview会超出父视图，看起来像圆角没有设置成功。</p>
+<p>接着给父视图设置Shadow却没有成功。一开始以为是代码的问题，写了很多次，数值啊颜色啊大小啊都设置的很大，却还是不显示。百度了一下，提示阴影为超出父视图的部分，如果使用masksToBounds会把超出部分切掉，但去掉masksToBounds会导致圆角失效。</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>给View外面套一层ShadowView，把阴影加到ShadowView上，不设置masksToBounds，再设置真正需要圆角的View，设置masksToBounds即可。</p>
 <a id="more"></a>
 
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
-<li><p>创建github仓库</p>
-</li>
-<li><p>新建一个<code>hexo</code>分支</p>
-</li>
-<li><p>设置<code>hexo</code>为默认分支，如图。</p>
-<p> <img src="settingBranch.jpg" alt="settingBranch"></p>
-</li>
-<li><p>配置SSH Key</p>
-</li>
-</ol>
-<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
-<li>先创建一个空文件夹，命名为<code>github.io</code>（命名随意）</li>
-<li>进入该文件夹下，执行<code>git clone （你的仓库地址）</code></li>
-<li>由于我们设置了默认分支，此时clone下来的是<code>hexo</code>分支的内容。本地分支默认显示为<code>master</code>，我们把本地分支切换到<code>hexo</code>分支去</li>
-<li><code>git checkout hexo</code>  切换到hexo分支</li>
-<li><code>git branch -v</code>  打印当前所有的分支，当前分支颜色为绿色</li>
-</ol>
-<p>此时分支问题就弄好了，然后开始新建hexo模板。</p>
-<ol>
-<li><p>在当前文件夹下执行<code>hexo init sourceHexo</code>，将hexo模板生成到一个子文件夹下。</p>
-</li>
-<li><p>进入<code>sourceHexo</code>目录下，执行<code>hexo g</code>生成静态文件</p>
-</li>
-<li><p>安装deploy插件，使hexo可以生成后提交到git上</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></li>
-<li><p>打开<code>_config.yml</code>文件，修改<code>deploy</code>项为：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:Yadea-Web/Yadea-Web.github.io.git（你的仓库地址）</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">self.shadowView.layer.cornerRadius = 50;</span><br><span class="line">self.shadowView.layer.shadowOffset = CGSizeMake(1, 5);</span><br><span class="line">self.shadowView.layer.shadowOpacity = 0.8;</span><br><span class="line">self.shadowView.layer.shadowColor = [UIColor lightGrayColor].CGColor;</span><br><span class="line">self.actionView.layer.cornerRadius = 50;</span><br><span class="line">self.actionView.layer.masksToBounds = YES;</span><br></pre></td></tr></table></figure>
 
-<p> repository为你的仓库地址，必须是git开头的，所以准备工作时要配置SSH Key。<br> 设置提交时提交到master分支上。<br> github.io默认地址打开时为master分支的index.html文件</p>
-</li>
-<li><p>执行<code>hexo d</code>提交生成的静态文件代码</p>
-</li>
-<li><p>打开你的github.io主页，地址为你的名字+github.io。比如我的仓库地址为<code>https://github.com/Yadea-Web/Yadea-Web.github.io</code>，那我的博客地址为<code>https://Yadea-Web.github.io</code>，把<code>Yadea-Web</code>那块儿替换成你自己的名字就可以了</p>
-</li>
-</ol>
-<p>到此我们的git就配置好了，文章也可以生成了。</p>
-<h4 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h4><p>配置好以上内容，之后我们新建文章修改文章，都要提交两次。一次是提交hexo为我们生成的静态文件到<code>master</code>分支，供用户访问。另一次是我们自己提交源文件到<code>hexo</code>分支，为自己备份。</p>
+
+<p>设置没有SubView的View时并不需要设置masksToBounds属性就可以同时拥有圆角和阴影，但有SubView时为了不让它超出父视图内容（如果都为白色的话超出看着特别像设置没有成功的样子）就必须设置masksToBounds属性了，才会有上面的问题。</p>
+<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><p>写了一个Demo，展示一下不同的设置效果，给大家参考。<br><a href="https://github.com/Yadea-Web/RadiusShadowDemo" target="_blank" rel="noopener">https://github.com/Yadea-Web/RadiusShadowDemo</a></p>
 <ul>
-<li><p>hexo提交命令(在<code>sourceHexo</code>文件夹下执行)</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-<li><p>git提交命令(在<code>github.io</code>文件夹下执行)</p>
-<pre><code>git add .
-git commit -m &quot;备份&quot;
-git push origin hexo</code></pre></li>
+<li>第一个View是没有Subview的情况，直接设置cornerRadius即可，不需要设置masksToBounds属性。</li>
+<li>第二个View有一个子View，不设置masksToBounds属性显示阴影但圆角没生效，因为子视图超出了。</li>
+<li>第三个View有一个子View，设置masksToBounds属性圆角生效了，但阴影消失了，因为把超出部分截掉了。</li>
+<li>第四个View有一个子View，设置View的阴影，不设置masksToBounds。设置Subview的cornerRadius，再设置masksToBounds属性。Subview将超出部分截掉，外层展示它应该展示的阴影效果。</li>
+<li>第五第六展示的是有多个子控件的情况，与三四类似，详见Demo。</li>
 </ul>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
-<li><code>master</code>分支放着hexo为我们生成的静态文件，用户可以直接通过博客地址访问生成好的内容。</li>
-<li><code>hexo</code>分支放着我们的源文件和配置信息，更换电脑或者文章找不到时可以git clone hexo分支的内容重新配置，之前的文章也不会丢失。</li>
-</ul>
-<p>记得每次提交一定要提交两次啊！！！</p>
-<h4 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h4><ol>
-<li>执行<code>git clone</code>后执行<code>hexo init</code>，提示文件夹内有内容，只能在空文件夹里新建。把.git文件夹挪出去后再执行依旧不行，百度了很多说删掉就可以，但我这里就是不行。所以用了创建一个新的文件夹的方式来解决这个问题，<code>hexo init</code> 指在当前文件夹下新建hexo库，<code>hexo init XXX</code> 指新建一个<code>XXX</code>文件夹，在<code>XXX</code>文件夹下新建hexo库，这样就解决了</li>
-<li><code>git clone</code> 下来的默认远程分支为<code>hexo</code>（我们设置的），本地的叫<code>master</code>（默认创建的第一个分支，但代码是<code>hexo</code>分支的），有点混乱，所以切到<code>hexo</code>分支就可以了，别的不需要care</li>
-</ol>
-<p>你成功了吗？</p>
+<p><img src="Demo.png" alt="Demo.png"></p>
   	
 					
 	  </div>     
@@ -200,10 +159,14 @@ git push origin hexo</code></pre></li>
   <div class="other">
     <div class="meta">
       
+      <i class="iconfont icon-category"></i>
+      <a class="category-link" href="/categories/iOS/">iOS</a>
+
+      
 
       
       <i class="iconfont icon-tag"></i>
-      <a class="tag-link" href="/tags/Hexo/" rel="tag">Hexo</a>
+      <a class="tag-link" href="/tags/iOS/" rel="tag">iOS</a>
       
     </div>
 
@@ -239,24 +202,16 @@ git push origin hexo</code></pre></li>
   <nav class="nav">
     <div class="link">
       
-      <a href="/2019/10/23/FirstBlog/" class="link-wrap">
+      <a href="/2019/10/24/hexobranch/" class="link-wrap">
         <strong class="caption">older</strong>
         
         <span class="title">
-          从0开始创建一个github博客
+          hexo搭建github分支问题
         </span>
       </a>
       
     </div>
     <div class="link">
-      
-      <a href="/2019/10/31/cornershadow/" class="link-wrap">
-        <strong class="caption">newer</strong>
-        
-        <span class="title">
-          iOS设置圆角后阴影不显示
-        </span>
-      </a>
       
     </div>
   </nav>
