@@ -11,5 +11,5 @@ layout: about
 > Name - [Yadea](https://github.com/Yadea-Web)
 > Location - Beijing, China
 > Email - yadea_mini@163.com
-<!-- Wechat - 
-<img src="qrcode.jpeg" width="200" />-->
+> Wechat - 
+<img src="qrcode.jpeg" width="200" />
