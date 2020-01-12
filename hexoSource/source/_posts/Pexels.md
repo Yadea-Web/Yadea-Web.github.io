@@ -31,6 +31,9 @@ Please try again. Your captcha couldn't be validated. If this happens again plea
 
 应该是Pexels在国内只能登录不能注册，需要用国外网络进行注册后再登录。登录时不限制网络环境。
 
-有需要的朋友可以联系我代注册，提供邮箱即可。
+有需要的朋友可以联系我代注册，提供邮箱和用户名即可。（有偿服务，闲鱼交易）
 
-[备注：账号注册](https://blog.yadea.cloud/about)
+<img src="pexels.png" width="200" />
+<img src="pixabay.png" width="200" />
+<img src="unsplash.png" width="200" />
+<img src="IMG_0488.JPG" width=400" />
