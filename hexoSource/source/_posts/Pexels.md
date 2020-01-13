@@ -1,12 +1,14 @@
 ---
-title: Pexels注册报错
+title: Pexels/Pixabay/Unsplash注册验证失败
 date: 2019-12-02 15:39:32
 tags: [Design, Photo]
 ---
 
-Pexels是一个图片网站，里面的图片都是免费无版权的，数量也很丰富，可以随意使用。如果你想给你的文章找一张配图的话，Pexels是最好的选择。
+Pexels/Pixabay/Unsplash是一个图片网站，里面的图片都是免费无版权的，数量也很丰富，可以随意使用。如果你想给你的文章找一张配图的话，这几个网站是最好的选择。
 
 [https://www.pexels.com/](https://www.pexels.com/)
+[https://unsplash.com/](https://unsplash.com/)
+[https://pixabay.com/](https://pixabay.com/)
 
 它是一个国外网站，但在国内可以照常访问，速度也很快，都是高清大图。
 
@@ -33,7 +35,8 @@ Please try again. Your captcha couldn't be validated. If this happens again plea
 
 有需要的朋友可以联系我代注册，提供邮箱和用户名即可。（有偿服务，闲鱼交易）
 
+（辛辛苦苦做的图被盗了，只好加上一层水印，真难。有需要的加我微信吧：442433866，备注【博客代注册】就行
+
 <img src="pexels.png" width="200" />
 <img src="pixabay.png" width="200" />
 <img src="unsplash.png" width="200" />
-<img src="IMG_0488.JPG" width=400" />
